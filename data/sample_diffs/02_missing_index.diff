@@ -1,0 +1,18 @@
+diff --git a/app/models.py b/app/models.py
+index 4a1b2c3..8d9e0f1 100644
+--- a/app/models.py
++++ b/app/models.py
+@@ -10,3 +10,13 @@ class Board(Base):
+     id = Column(Integer, primary_key=True)
+     name = Column(String(100), nullable=False)
+ 
++class Task(Base):
++    __tablename__ = "tasks"
++
++    id = Column(Integer, primary_key=True)
++    title = Column(String(200), nullable=False)
++    board_id = Column(Integer, ForeignKey("boards.id"))
++    status = Column(String(20), default="todo")
++
++def get_tasks_for_board(db, board_id):
++    return db.query(Task).filter(Task.board_id == board_id).all()

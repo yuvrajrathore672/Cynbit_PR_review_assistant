@@ -1,0 +1,34 @@
+diff --git a/app/utils/slug.py b/app/utils/slug.py
+new file mode 100644
+--- /dev/null
++++ b/app/utils/slug.py
+@@ -0,0 +1,8 @@
++import re
++
++
++def slugify(text: str) -> str:
++    """Convert a title into a URL-friendly slug."""
++    text = text.strip().lower()
++    text = re.sub(r"[^a-z0-9]+", "-", text)
++    return text.strip("-")
+diff --git a/tests/test_slug.py b/tests/test_slug.py
+new file mode 100644
+--- /dev/null
++++ b/tests/test_slug.py
+@@ -0,0 +1,16 @@
++import pytest
++
++from app.utils.slug import slugify
++
++
++@pytest.mark.parametrize(
++    "raw, expected",
++    [
++        ("Hello World", "hello-world"),
++        ("  Trim Me  ", "trim-me"),
++        ("Symbols!! & Spaces", "symbols-spaces"),
++        ("", ""),
++    ],
++)
++def test_slugify(raw, expected):
++    assert slugify(raw) == expected

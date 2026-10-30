@@ -1,0 +1,12 @@
+diff --git a/app/search.py b/app/search.py
+new file mode 100644
+--- /dev/null
++++ b/app/search.py
+@@ -0,0 +1,7 @@
++from sqlalchemy import text
++
++
++def search_tasks(db, keyword: str):
++    query = f"SELECT id, title FROM tasks WHERE title LIKE '%{keyword}%'"
++    result = db.execute(text(query))
++    return [dict(row._mapping) for row in result]

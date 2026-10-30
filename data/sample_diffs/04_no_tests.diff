@@ -1,0 +1,21 @@
+diff --git a/app/services/streak.py b/app/services/streak.py
+new file mode 100644
+--- /dev/null
++++ b/app/services/streak.py
+@@ -0,0 +1,16 @@
++from datetime import date, timedelta
++
++
++def calculate_streak(submission_dates: list[date]) -> int:
++    """Return the number of consecutive days with a submission, ending today."""
++    days = set(submission_dates)
++    streak = 0
++    current = date.today()
++    while current in days:
++        streak += 1
++        current -= timedelta(days=1)
++    return streak
++
++
++def is_streak_frozen(freeze_until: date) -> bool:
++    return date.today() <= freeze_until
