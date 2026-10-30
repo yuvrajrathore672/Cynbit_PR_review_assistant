@@ -1,0 +1,30 @@
+{
+  "01_hardcoded_secret.diff": {
+    "expected_issues": [
+      {"category": "security", "keywords": ["hardcoded", "hard-coded", "secret", "api key", "environment"]}
+    ]
+  },
+  "02_missing_index.diff": {
+    "expected_issues": [
+      {"category": "performance", "keywords": ["index"]}
+    ]
+  },
+  "03_jwt_no_verify.diff": {
+    "expected_issues": [
+      {"category": "security", "keywords": ["signature", "verify", "verification"]}
+    ]
+  },
+  "04_no_tests.diff": {
+    "expected_issues": [
+      {"category": "testing", "keywords": ["test"]}
+    ]
+  },
+  "05_sql_injection.diff": {
+    "expected_issues": [
+      {"category": "security", "keywords": ["injection", "parameter", "bind", "f-string", "sanitize"]}
+    ]
+  },
+  "06_clean_pr.diff": {
+    "expected_issues": []
+  }
+}
