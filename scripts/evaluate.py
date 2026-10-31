@@ -20,6 +20,16 @@ def is_caught(expected_issue: dict, found_issues):
                 return True
     return False
 
+def safe_review(diff_text, attempts=4):
+    """Call the reviewer, retrying when the model returns broken JSON."""
+    for attempt in range(1, attempts + 1):
+        try:
+            return review_diff(diff_text)
+        except Exception as error:
+            print(f"   (attempt {attempt} failed: {str(error)[:80]}... retrying)")
+            time.sleep(5)
+    raise RuntimeError("Reviewer failed after several attempts")
+
 
 def main():
     total_expected = 0
@@ -29,7 +39,7 @@ def main():
 
     for name, entry in sorted(EXPECTED.items()):
         diff_text = (DIFF_DIR / name).read_text(encoding="utf-8")
-        result = review_diff(diff_text)
+        result = safe_review(diff_text)
         expected_issues = entry["expected_issues"]
 
         caught = sum(is_caught(e, result.issues) for e in expected_issues)
