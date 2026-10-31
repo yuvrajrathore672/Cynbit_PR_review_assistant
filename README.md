@@ -1,5 +1,7 @@
 # AI PR Review Assistant
 
+[LIVE DEMO](https://pr-assistant.streamlit.app/)
+
 An AI first-pass pull request reviewer for mentorship programs such as Cynbit's **BitElevate**. It reads a PR diff and drafts structured feedback (issues, severity, suggested fixes, rubric scores and a friendly mentor comment), so a human mentor can start from a draft instead of a blank page.
 
 Built for the **Cynbit Technologies AI/ML Engineer Intern assessment: "Identify an AI Opportunity for Cynbit"**.
