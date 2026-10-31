@@ -1,0 +1,50 @@
+{
+  "total_expected": 5,
+  "total_caught": 5,
+  "recall": 1.0,
+  "false_alarms_on_clean_pr": 0,
+  "details": [
+    {
+      "diff": "01_hardcoded_secret.diff",
+      "expected": 1,
+      "caught": 1,
+      "issues_reported": 1,
+      "false_alarms": 0
+    },
+    {
+      "diff": "02_missing_index.diff",
+      "expected": 1,
+      "caught": 1,
+      "issues_reported": 5,
+      "false_alarms": 0
+    },
+    {
+      "diff": "03_jwt_no_verify.diff",
+      "expected": 1,
+      "caught": 1,
+      "issues_reported": 2,
+      "false_alarms": 0
+    },
+    {
+      "diff": "04_no_tests.diff",
+      "expected": 1,
+      "caught": 1,
+      "issues_reported": 2,
+      "false_alarms": 0
+    },
+    {
+      "diff": "05_sql_injection.diff",
+      "expected": 1,
+      "caught": 1,
+      "issues_reported": 3,
+      "false_alarms": 0
+    },
+    {
+      "diff": "06_clean_pr.diff",
+      "expected": 0,
+      "caught": 0,
+      "issues_reported": 0,
+      "false_alarms": 0
+    }
+  ]
+}
