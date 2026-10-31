@@ -12,14 +12,15 @@ class Issue(BaseModel):
 
 
 class RubricScores(BaseModel):
-    correctness : int= Field(ge=1,le=5)
-    tests : int= Field(ge=1,le=5)
-    security : int= Field(ge=1,le=5)
+    correctness: int = Field(ge=1, le=5)
+    tests: int = Field(ge=1, le=5)
+    security: int = Field(ge=1, le=5)
+    readability: int = Field(ge=1, le=5)
 
 
 class ReviewResult(BaseModel):
     summary: str
     issues : list[Issue]
     scores: RubricScores
-    mentor_feedback : str
+    mentor_comment: str
 
