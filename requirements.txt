@@ -1,6 +1,7 @@
-groq
 streamlit
 pydantic
 requests
 python-dotenv
 pytest
+langchain
+langchain-groq
